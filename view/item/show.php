@@ -1,5 +1,4 @@
 <?php
-ini_set('display_errors', 1);
 
 require_once('../../config/db_settings.php');
 
@@ -11,17 +10,20 @@ $options = $db_val['options'];
 
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
-    $sql = 'SELECT * FROM items';
-    $res = $pdo->query($sql);
+    $sql = 'SELECT * FROM items WHERE id = :id';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+    $stmt->execute();
 } catch (PDOException $e) {
     return $e->getMessage();
 }
 
 ?>
 
-<h1>商品一覧ページ</h1>
-<ul>
-<?php foreach($res as $item) { ?>
-    <li><?php echo $item['name']; ?></li>
-<?php } ?>
-</ul>
+
+
+<a href="edit.php">編集ページ</a>
+<form action="show.php" method="post">
+    <input type="submit" name="delete" value="削除">
+</form>
+
