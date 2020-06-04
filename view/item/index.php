@@ -22,6 +22,6 @@ try {
 <h1>商品一覧ページ</h1>
 <ul>
 <?php foreach($res as $item) { ?>
-    <li><?php echo $item['name']; ?></li>
+    <li><a href="show.php?id=<?php echo $item['id']; ?>"><?php echo $item['name']; ?></a></li>
 <?php } ?>
 </ul>
