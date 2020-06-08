@@ -13,6 +13,7 @@ try {
     $pdo = new PDO($dsn, $user, $pass, $options);
     $sql = 'SELECT * FROM items';
     $res = $pdo->query($sql);
+
 } catch (PDOException $e) {
     return $e->getMessage();
 }

@@ -21,6 +21,11 @@ try {
 } catch (PDOException $e) {
     return $e->getMessage();
 }
+
+if (empty($res)) {
+    header('Location: index.php');
+}
+
 ?>
 
 <?php
@@ -31,6 +36,8 @@ if (isset($_POST['delete'])) {
     $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
     $stmt->execute();
     $database = null;
+
+    header('Location: index.php');
 }
 ?>
 
