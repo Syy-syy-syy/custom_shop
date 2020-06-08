@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1);
 
 require_once('../../config/db_settings.php');
 
@@ -12,6 +13,7 @@ try {
     $pdo = new PDO($dsn, $user, $pass, $options);
     $sql = 'SELECT * FROM items';
     $res = $pdo->query($sql);
+
 } catch (PDOException $e) {
     return $e->getMessage();
 }
@@ -21,6 +23,6 @@ try {
 <h1>商品一覧ページ</h1>
 <ul>
 <?php foreach($res as $item) { ?>
-    <li><?php echo $item['name']; ?></li>
+    <li><a href="show.php?id=<?php echo $item['id']; ?>"><?php echo $item['name']; ?></a></li>
 <?php } ?>
 </ul>
