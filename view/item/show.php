@@ -17,7 +17,6 @@ try {
     $stmt->execute();
     $res = $stmt->fetch();
     $database = null;
-
 } catch (PDOException $e) {
     return $e->getMessage();
 }
@@ -26,9 +25,6 @@ if (empty($res)) {
     header('Location: index.php');
 }
 
-?>
-
-<?php
 if (isset($_POST['delete'])) {
     $pdo = new PDO($dsn, $user, $pass, $options);
     $sql = 'DELETE FROM items WHERE id = :id';
@@ -47,9 +43,7 @@ if (isset($_POST['delete'])) {
     <li><?php echo $res['price']; ?></li>
     <li><?php echo $res['stock']; ?></li>
 </ul>
-
 <form method="post">
     <input type="submit" name="delete" value="削除">
 </form>
-
 <a href="edit.php?id=<?php echo $_GET['id']; ?>">編集</a>

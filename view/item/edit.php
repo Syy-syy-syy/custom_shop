@@ -17,29 +17,26 @@ try {
     $stmt->execute();
     $res = $stmt->fetch();
     $database = null;
-
 } catch (PDOException $e) {
     return $e->getMessage();
 }
-?>
 
-<?php
-    if (isset($_POST['update'])) {
-        $pdo = new PDO($dsn, $user, $pass, $options);
-        $sql = 'UPDATE items SET name = :name, descript = :descript, price = :price, stock= :stock WHERE id = :id';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':name', $_POST['name'], PDO::PARAM_STR);
-        $stmt->bindParam(':descript', $_POST['descript'], PDO::PARAM_STR);
-        $stmt->bindParam(':price', $_POST['price'], PDO::PARAM_INT);
-        $stmt->bindParam(':stock', $_POST['stock'], PDO::PARAM_INT);
-        $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
-        $stmt->execute();
-        $res = $stmt->fetch();
-        $database = null;
+if (isset($_POST['update'])) {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+    $sql = 'UPDATE items SET name = :name, descript = :descript, price = :price, stock= :stock WHERE id = :id';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':name', $_POST['name'], PDO::PARAM_STR);
+    $stmt->bindParam(':descript', $_POST['descript'], PDO::PARAM_STR);
+    $stmt->bindParam(':price', $_POST['price'], PDO::PARAM_INT);
+    $stmt->bindParam(':stock', $_POST['stock'], PDO::PARAM_INT);
+    $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+    $stmt->execute();
+    $res = $stmt->fetch();
+    $database = null;
 
-        header("Location: index.php");
-        exit();
-    }
+    header("Location: index.php");
+    exit();
+}
 ?>
 
 <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="post">
