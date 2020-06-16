@@ -51,3 +51,5 @@ if (isset($_POST['delete'])) {
 <form method="post">
     <input type="submit" name="delete" value="削除">
 </form>
+
+<a href="edit.php?id=<?php echo $_GET['id']; ?>">編集</a>
