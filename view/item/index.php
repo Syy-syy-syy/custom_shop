@@ -26,3 +26,5 @@ try {
     <li><a href="show.php?id=<?php echo $item['id']; ?>"><?php echo $item['name']; ?></a></li>
 <?php } ?>
 </ul>
+
+<a href="create.php">商品作成</a>

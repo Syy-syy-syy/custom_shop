@@ -16,7 +16,7 @@ try {
     $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
     $stmt->execute();
     $res = $stmt->fetch();
-    $database = null;
+    $pdo = null;
 } catch (PDOException $e) {
     return $e->getMessage();
 }
