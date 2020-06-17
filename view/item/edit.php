@@ -16,7 +16,7 @@ try {
     $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
     $stmt->execute();
     $res = $stmt->fetch();
-    $database = null;
+    $pdo = null;
 } catch (PDOException $e) {
     return $e->getMessage();
 }
@@ -45,6 +45,6 @@ if (isset($_POST['update'])) {
         <li><input type="text" name="descript" value="<?php echo $res['descript']; ?>"></li>
         <li><input type="text" name="price" value="<?php echo $res['price']; ?>"></li>
         <li><input type="text" name="stock" value="<?php echo $res['stock']; ?>"></li>
-        <input type="submit" name="update" value="更新">
     </ul>
+    <input type="submit" name="update" value="更新">
 </form>
