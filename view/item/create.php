@@ -25,6 +25,8 @@ if (!empty($_POST['create'])) {
         header("Location: /item/index.php");
         exit();
     } catch (PDOException $e) {
+        header("Location: /item/index.php");
+        exit();
         return $e->getMessage();
     }
 }
@@ -53,7 +55,7 @@ if (empty($all)) {
             <select name="category">
                 <?php foreach($all as $category) { ?>
                     <option value= <?php echo $category['id'] ?>>
-                    <?php echo $category['name']; ?>
+                        <?php echo $category['name']; ?>
                     </option>
                 <?php } ?>
             </select>
@@ -61,3 +63,4 @@ if (empty($all)) {
     </ul>
     <input type="submit" name="create" value="作成">
 </form>
+<a href="/category/index.php">商品一覧</a>
