@@ -28,3 +28,4 @@ try {
 </ul>
 
 <a href="/item/create.php">商品作成</a>
+<a href="/category/index.php">カテゴリ一覧</a>
