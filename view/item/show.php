@@ -47,4 +47,4 @@ if (isset($_POST['delete'])) {
     <input type="submit" name="delete" value="削除">
 </form>
 <a href="edit.php?id=<?php echo $_GET['id']; ?>">編集</a>
-<button type="button" onclick="history.back()">戻る</button>
+<button type="button" onclick="location.href='index.php'">戻る</button>
