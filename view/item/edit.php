@@ -48,3 +48,4 @@ if (isset($_POST['update'])) {
     </ul>
     <input type="submit" name="update" value="更新">
 </form>
+<button type="button" onclick="location.href='show.php?id=<?php echo $_GET['id']; ?>'">戻る</button>

@@ -29,4 +29,6 @@ try {
 <?php } else { ?>
 <h2>カテゴリが登録されていません。</h2>
 <?php } ?>
+
 <a href="/category/create.php">カテゴリ新規作成</a>
+<a href="/item/index.php">商品一覧</a>

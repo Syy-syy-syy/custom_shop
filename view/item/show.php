@@ -38,12 +38,13 @@ if (isset($_POST['delete'])) {
 ?>
 
 <ul>
-    <li><?php echo $res['name']; ?></li>
-    <li><?php echo $res['descript']; ?></li>
-    <li><?php echo $res['price']; ?></li>
-    <li><?php echo $res['stock']; ?></li>
+    <li>商品名: <?php echo $res['name']; ?></li>
+    <li>商品説明: <?php echo $res['descript']; ?></li>
+    <li>価格: <?php echo $res['price']; ?></li>
+    <li>在庫数: <?php echo $res['stock']; ?></li>
 </ul>
 <form method="post">
     <input type="submit" name="delete" value="削除">
 </form>
 <a href="edit.php?id=<?php echo $_GET['id']; ?>">編集</a>
+<button type="button" onclick="location.href='index.php'">戻る</button>
